@@ -9,7 +9,7 @@ install:
   - true
 
 script:
-  - true
+  - ./bin/test.sh
 
 notifications:
   slack:
