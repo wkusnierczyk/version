@@ -1,0 +1,16 @@
+dist: trusty
+sudo: required
+
+env:
+  global:
+    - PROJECT_NAME='version'
+
+install:
+  - true
+
+script:
+  - true
+
+notifications:
+  slack:
+    secure: 'SKZVxP+TaPrP/vEjatt4nWnUJ5sS3dc6qQPX1ZRrWeeYoAAcegQr+JW41WT0o6j7qZPeZyD40cy9A9GCY1745TjU82TT9+2lORf0kgGVcqNUmW9QntpNRI+CZqY5DPmnGgde5VRtiXwradiwllwk9hPXWBjvqb9euc0k6hxeks2MVNsY6BE6Gmmcd+ZoSJnnrWxB3J8QwobXTFYQoJFQ3ez6emKjIFUvij2YMrg487jBaXsmBJ+rgdT/EK8H0pgIHhANnxHMYnQ8SIT10Xzr6f97JY0UT7M5PEC483lNZjLodzelz2ucYlgktEkhGQtEriuofQdZKJCI3migHcyNxD7CM2ILGe5B+Z021LCwE+NcUFckDjV/W1fCueHCvvaDHjEGMwVtonEs71q9IQpIoDGai6yGOJtRurGSqSc93gayTQGIdkKrS1DmOlWZdbRTVZGTRTOBVIP8b5D7gpQoz7KzmKJuSfUBE5X517iPVeBFNuAxmRaBxp9NXaUbQZb7R0WbYDPcw/cJE9BGq3uoORe+ddIRVLHZAjVdJKaMvp90etmqmEvPamFV/E4nuHaCrJCrdzqzlzr57DiTQdWxe/TBSPdB1h8gG+ISUKfLse+ffSGpOG9qtCtT++p98zB4e+rLfeU4AkHR/vghC80j8L8GIWh3N4BvNy0KSukbozw='
