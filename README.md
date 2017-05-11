@@ -7,13 +7,12 @@
  
 ## Installation
  
-There is none.  The code is contained in the script file `src/version.sh`, and can be used in two ways:
+There is none.  The code is contained in the script file `version.sh`, and can be used in two ways:
 
 * as an executable:  
 `./version.sh [ args ]`
 * as a function sourced from the script file:  
 `. ./version.sh && version [ args ]`
-
 
 The arguments `args` differ between the two versions. 
 

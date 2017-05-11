@@ -25,7 +25,7 @@ version() {
     case "$PART" in
         major) let MAJOR+=1;;
         minor) let MINOR+=1;;
-    	build) let BUILD+=1;;
+        build) let BUILD+=1;;
         *) echo "wrong or no part specification: '$PART'" >&2; return $ERROR_PART_FLAG;;
     esac
     echo "$MAJOR.$MINOR.$BUILD"
