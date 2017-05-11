@@ -10,7 +10,7 @@ export ERROR_PART_FLAG=2
 
 # base directory of this project
 export BASE=$(cd $(dirname $BASH_SOURCE)/..; pwd -P)
-export VERSION="$BASE/src/version.sh"
+export VERSION="$BASE/version.sh"
 
 # test index
 export COUNTER=0
