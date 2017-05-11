@@ -17,32 +17,32 @@ export COUNTER=0
 
 # test that version correctly updates version string
 success() {
-	local VERSION="$1"
-	local OUTPUT="$2"
-	shift 2
-	let COUNTER+=1
-	printf "[%02d] $VERSION $@ ==> $OUTPUT... " $COUNTER
-	if [ "$($VERSION $@ 2>/dev/null)" = "$OUTPUT" ]; then
-	 	echo "Passed"
-	else
-		echo "Failed"
-		exit $ERROR_SUCCESS
-	fi
+    local VERSION="$1"
+    local OUTPUT="$2"
+    shift 2
+    let COUNTER+=1
+    printf "[%02d] $VERSION $@ ==> $OUTPUT... " $COUNTER
+    if [ "$($VERSION $@ 2>/dev/null)" = "$OUTPUT" ]; then
+         echo "Passed"
+    else
+        echo "Failed"
+        exit $ERROR_SUCCESS
+    fi
 }
 
 # test that version correctly fails on incorrect input
 failure() {
-	let COUNTER+=1
-	local VERSION="$1"
-	local ERROR="$2"
-	shift 2
-	printf "[%02d] $VERSION $@ fails with $ERROR... " $COUNTER
-	if [ "$($VERSION $@ >/dev/null 2>&1; echo $?)" -eq "$ERROR" ]; then
-		echo "Passed"
-	else
-		echo "Failed"
-		exit $ERROR_FAILURE
-	fi
+    let COUNTER+=1
+    local VERSION="$1"
+    local ERROR="$2"
+    shift 2
+    printf "[%02d] $VERSION $@ fails with $ERROR... " $COUNTER
+    if [ "$($VERSION $@ >/dev/null 2>&1; echo $?)" -eq "$ERROR" ]; then
+        echo "Passed"
+    else
+        echo "Failed"
+        exit $ERROR_FAILURE
+    fi
 }
 
 success $VERSION 0.0.1 0.0.0
