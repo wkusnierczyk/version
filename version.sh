@@ -13,27 +13,27 @@ export ERROR_PART_FLAG=2
 # if version string given in incorrect format, returns with code ERROR_VERSION_STRING
 # if no flag or wrong flag is given, returns with error code ERROR_PART_FLAG
 version() {
-	local CURRENT="$1"
-	local PART="$2"
-	grep -E '^[0-9]+[.][0-9]+[.][0-9]+$' >/dev/null <<< "$CURRENT" || {
-		echo "wrong or no version string: '$CURRENT'" >&2
-		return $ERROR_VERSION_STRING
-	}
-	local MAJOR=$(sed -E 's/^([0-9]+).*/\1/' <<< $CURRENT)
-	local MINOR=$(sed -E 's/^[0-9]+[.]([0-9]+).*/\1/' <<< $CURRENT)
-	local BUILD=$(sed -E 's/^[0-9]+[.][0-9][.]([0-9]+)$/\1/' <<< $CURRENT)
-	case "$PART" in
-		major) let MAJOR+=1;;
-		minor) let MINOR+=1;;
-		build) let BUILD+=1;;
-		*) echo "wrong or no part specification: '$PART'" >&2; return $ERROR_PART_FLAG;;
-	esac
-	echo "$MAJOR.$MINOR.$BUILD"
+    local CURRENT="$1"
+    local PART="$2"
+    grep -E '^[0-9]+[.][0-9]+[.][0-9]+$' >/dev/null <<< "$CURRENT" || {
+        echo "wrong or no version string: '$CURRENT'" >&2
+        return $ERROR_VERSION_STRING
+    }
+    local MAJOR=$(sed -E 's/^([0-9]+).*/\1/' <<< $CURRENT)
+    local MINOR=$(sed -E 's/^[0-9]+[.]([0-9]+).*/\1/' <<< $CURRENT)
+    local BUILD=$(sed -E 's/^[0-9]+[.][0-9][.]([0-9]+)$/\1/' <<< $CURRENT)
+    case "$PART" in
+        major) let MAJOR+=1;;
+        minor) let MINOR+=1;;
+    	build) let BUILD+=1;;
+        *) echo "wrong or no part specification: '$PART'" >&2; return $ERROR_PART_FLAG;;
+    esac
+    echo "$MAJOR.$MINOR.$BUILD"
 }
 
 # if script sourced, return (the version function is available in the sourcing shell)
 if [ "$BASH_SOURCE" != "$0" ]; then
-	return
+    return
 fi
 
 # parse command line options
@@ -46,11 +46,11 @@ export PART='build'
 # extract options and their arguments into variables.
 while true ; do
     case "$1" in
-    	-a|--major) PART='major'; shift;;
-    	-i|--minor) PART='minor'; shift;;
-    	-b|--build) PART='build'; shift;;
-    	--) shift; break;;
-    	*) echo "wrong command line argument: '$1'"; exit 1;;
+        -a|--major) PART='major'; shift;;
+        -i|--minor) PART='minor'; shift;;
+        -b|--build) PART='build'; shift;;
+        --) shift; break;;
+        *) echo "wrong command line argument: '$1'"; exit 1;;
     esac
 done
 
